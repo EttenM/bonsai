@@ -1,0 +1,85 @@
+@use "sass:math";
+
+@mixin fluid-text($max: 48, $min: 16) {
+  $maxViewportWidth: 1400;
+  $minViewportWidth: 360;
+
+  $maxSize: math.div($max, 16);
+  $minSize: math.div($min, 16);
+  $maxWidth: math.div($maxViewportWidth, 16);
+  $minWidth: math.div($minViewportWidth, 16);
+
+  $slope: math.div(($maxSize - $minSize), ($maxWidth - $minWidth));
+  $yAxisIntersection: -$minWidth * $slope + $minSize;
+
+  font-size: clamp(
+    #{$minSize * 1rem},
+    #{$yAxisIntersection * 1rem} + #{$slope * 100vw},
+    #{$maxSize * 1rem}
+  );
+}
+
+@function calc-index($index: 1) {
+  $widthMultHeight: calc(1vh + 1vw);
+  $index: calc($widthMultHeight * $index);
+  @return $index;
+}
+
+@mixin section-header($titleColor: $whiteColor, $fontSize: 0.9) {
+  $localIndex: $fontSize;
+  .section_header {
+    display: flex;
+    flex-direction: column;
+    font-size: calc-index($localIndex);
+    gap: 1em;
+    color: $greyColor;
+  }
+  .section_header_subtitle_wrapper {
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 1.5em;
+  }
+
+  .section_header_line {
+    width: 3em;
+    height: 0.2em;
+    background-color: $greyColor;
+  }
+
+  .section_header_title {
+    font-size: calc-index(calc($localIndex * 3));
+    color: $titleColor;
+    letter-spacing: -0.02em;
+  }
+
+  .section_header_title_accentText {
+    color: $accentColor;
+  }
+
+  @media (max-width: 768px) {
+    .section_header_title {
+      font-size: calc-index(calc($localIndex * 2.1));
+    }
+  }
+}
+
+@mixin description-text($textColor: $secondaryColor) {
+  font-size: calc-index(1.25);
+  color: $textColor;
+  text-wrap: balance;
+  @media (min-width: 1400px) {
+    font-size: calc-index(1);
+    text-wrap: unset;
+  }
+}
+
+@mixin button-link($color: $accentColor, $width: fit-content, $fontSize: 1vw) {
+  width: $width;
+  color: $color;
+  font-size: $fontSize;
+  cursor: pointer;
+  border: 1px $color solid;
+  border-radius: 0.5em;
+  padding: 0.8em 1em;
+}

@@ -1,0 +1,49 @@
+@import "@/utils/vars.scss";
+@import "@/utils/mixins.scss";
+
+.work_section {
+  margin-top: 10%;
+  width: 85%;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  gap: 15px;
+  justify-content: space-between;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 15px;
+    // width: 100%;
+  }
+
+  @include section-header($whiteColor, 0.9);
+}
+
+.work_header_wrapper {
+  // width: 40%;
+  width: min(100%, calc-index(35));
+}
+.work_text {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-self: flex-end;
+  justify-self: flex-end;
+  color: $secondaryColor;
+  font-size: calc-index(1);
+  width: 30%;
+
+  @media (max-width: 768px) {
+    font-size: max(14px, calc-index(1.2));
+    width: min(100%, calc-index(20));
+  }
+}
+
+.work_button {
+  @include button-link($accentColor);
+  font-size: calc-index(1);
+  width: 100%;
+  text-align: center;
+  @media (max-width: 767px) {
+    font-size: calc-index(1.2);
+  }
+}

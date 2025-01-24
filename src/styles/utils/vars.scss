@@ -1,0 +1,27 @@
+$mainColor: #141313;
+$greyColor: #8a8886;
+$accentColor: #b9a695;
+$secondaryColor: #e0e0e0;
+$creamColor: #fff3e9;
+$whiteColor: #fff;
+
+$sectionHeaderTitleColor: $whiteColor;
+
+%flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+%flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+%absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

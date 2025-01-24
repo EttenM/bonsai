@@ -1,0 +1,104 @@
+@import "@/utils/vars.scss";
+@import "@/utils/mixins.scss";
+
+.service-top-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  border-radius: 15px;
+}
+
+.service-top-gallery {
+  position: absolute;
+  top: calc-index(-5);
+  left: 0;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  gap: 4vw;
+}
+
+.service_header_wrapper {
+  @media (max-width: 767px) {
+    width: 70%;
+  }
+}
+
+.service {
+  @include section-header($mainColor);
+}
+
+.service_content {
+  padding-top: 35%;
+  width: 70%;
+  margin-left: auto;
+  margin-right: 10%;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 10vw;
+  @media (max-width: 767px) {
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    grid-template-columns: none;
+    gap: 15px;
+    grid-template-rows: 2;
+  }
+}
+.service_description_text {
+  @media (min-width: 768px) {
+    font-size: calc-index(0.8);
+  }
+  @include description-text($mainColor);
+  align-self: flex-end;
+  justify-self: flex-end;
+  @media (width <768px) {
+    width: 70%;
+  }
+}
+
+.service_image_wrapper {
+  width: 100%;
+  // display: flex;
+  display: grid;
+  // grid-template-columns: 40% 27% 27%;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15%;
+  gap: 2%;
+  grid-template-areas:
+    ". . . b b . ."
+    "a a a b b . ."
+    "a a a b b c c"
+    "a a a . . c c"
+    ". . . . . c c";
+  @media (max-width: 640px) {
+    grid-template-areas:
+      ". . . b b"
+      "a a a b b"
+      "a a a b b"
+      "a a a c c"
+      "a a a c c"
+      ". . . c c";
+  }
+}
+.service_image {
+  border-radius: 15px;
+}
+
+.service_image-1 {
+  width: 100%;
+  grid-area: a;
+  height: 100%;
+}
+.service_image-2 {
+  grid-area: b;
+  width: 100%;
+  height: 100%;
+}
+.service_image-3 {
+  grid-area: c;
+  width: 100%;
+  height: 100%;
+}

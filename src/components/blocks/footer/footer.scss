@@ -1,0 +1,100 @@
+@import "@/utils/vars.scss";
+@import "@/utils/mixins.scss";
+
+.footer {
+  width: 85%;
+  margin-right: auto;
+  margin-left: auto;
+  border-top: 2px solid $greyColor;
+  margin-top: 10%;
+  padding-top: 10%;
+  padding-bottom: 5%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-size: max(14px, calc-index(0.8));
+  color: $greyColor;
+  gap: 3em;
+}
+
+.footer_news {
+  display: flex;
+  flex-direction: column;
+  width: min(100%, calc-index(25));
+  font-size: max(18px, calc-index(2));
+  color: $whiteColor;
+  gap: 0.5em;
+}
+.footer_news_form {
+  width: 100%;
+  font-size: max(14px, calc-index(0.8));
+  display: flex;
+
+  input {
+    flex-shrink: 1;
+    min-width: 0;
+    padding: 1em;
+    border: none;
+    border: 1px solid $accentColor;
+    border-radius: 8px 0 0 8px;
+    color: $accentColor;
+  }
+  button {
+    padding: 1em;
+    border: none;
+    border: 1px solid $accentColor;
+    border-radius: 0 8px 8px 0;
+    color: $mainColor;
+    background: $accentColor;
+  }
+}
+
+.footer_navigation {
+  display: flex;
+  gap: 2.5em;
+  flex-wrap: wrap;
+}
+.footer_navigation_list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  .footer_navigation_list_link {
+    text-wrap: nowrap;
+  }
+}
+.footer_social {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.footer_logo {
+  font-size: max(14px, calc-index(2));
+  color: $whiteColor;
+}
+.footer_social_inner {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.footer_social_inner_links {
+  display: flex;
+  gap: 10px;
+
+  li {
+    width: max(30px, calc-index(1.5));
+    height: auto;
+    aspect-ratio: 1/1;
+    background: $accentColor;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    padding: 0.25em;
+    svg {
+      width: 100%;
+      height: 100%;
+      fill: $accentColor;
+      stroke: $mainColor;
+    }
+  }
+}

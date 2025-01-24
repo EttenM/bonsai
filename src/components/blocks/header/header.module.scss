@@ -1,0 +1,46 @@
+@import "@/styles/utils/vars.scss";
+@import "@/styles/utils/mixins.scss";
+.header {
+  @extend %flex-between;
+  width: 100%;
+  margin-top: 2.5vh;
+}
+
+.header_navigation {
+  font-size: max(14px, 1.2vw);
+  display: flex;
+  gap: 2em;
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.logo {
+  font-size: 2.2vw;
+  color: white;
+  @media (max-width: 1280px) {
+    font-size: 2.8vw;
+  }
+  @media (max-width: 768px) {
+    font-size: 6vw;
+  }
+}
+
+.navigation_link {
+  color: $accentColor;
+
+  transition: color 0.25s ease;
+  &:hover {
+    color: $secondaryColor;
+  }
+}
+
+.header_button {
+  @include button-link($accentColor);
+  @media (max-width: 1280px) {
+    font-size: 1.6vw;
+  }
+  @media (max-width: 768px) {
+    font-size: 4vw;
+  }
+}

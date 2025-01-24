@@ -1,0 +1,7 @@
+@import "@/utils/vars.scss";
+@import "@/utils/mixins.scss";
+
+.vision_section {
+  padding-bottom: calc-index(10);
+  @include section-header($whiteColor);
+}

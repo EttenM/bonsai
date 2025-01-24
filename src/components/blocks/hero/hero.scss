@@ -1,0 +1,109 @@
+@import "@/utils/vars.scss";
+@import "@/utils/mixins.scss";
+// @use "sass:meta";
+.hero_section {
+  position: relative;
+  display: grid;
+  grid-template-rows: repeat(10, minmax(85px, calc-index(3.5)));
+  @media (max-height: 700px) or (max-width: 768px) {
+    grid-template-rows: repeat(10, minmax(60px, calc-index(3.5)));
+  }
+  height: fit-content;
+  min-height: calc(100vh - 50px);
+  width: 100%;
+}
+
+.hero_image1 {
+  grid-row-start: 2;
+  width: calc-index(23);
+  height: auto;
+  aspect-ratio: 1 / 1;
+}
+
+.hero_image2 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: calc-index(17);
+  height: auto;
+  aspect-ratio: 1 / 1;
+}
+
+.hero_title {
+  position: absolute;
+  top: 30%;
+  left: 40%;
+  transform: translate(-40%, -30%);
+  font-size: calc-index(5.5);
+  line-height: 0.9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+@for $i from 2 through 4 {
+  @if ($i % 2 == 0) {
+    .hero_title span:nth-child(#{$i}) {
+      transform: translateX(0.6em * ($i * 0.55));
+    }
+  } @else {
+    .hero_title span:nth-child(#{$i}) {
+      transform: translateX(0.1em * ($i * 1));
+    }
+  }
+}
+
+.hero_description {
+  position: absolute;
+  top: 15%;
+  right: 6%;
+  transform: translate(-6%, -15%);
+  width: calc-index(18);
+  min-width: 230px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  @include description-text($secondaryColor);
+  .hero_description_title {
+    color: $accentColor;
+    font-size: calc-index(1.5);
+  }
+}
+
+@media (min-width: 1400px) {
+  // .hero_description {
+  //   font-size: calc-index(1);
+  //   text-wrap: unset;
+  // }
+  .hero_description_title {
+    font-size: 1.2vw;
+    text-wrap: unset;
+  }
+  .hero_title {
+    font-size: 8vw;
+  }
+}
+@media (max-width: 1280px) {
+  .hero_title {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+@media (max-width: 768px) {
+  .hero_description {
+    width: 45vw;
+    min-width: 0;
+    right: 15px;
+    top: 10%;
+    transform: translate(0%, -10%);
+  }
+  .hero_image2 {
+    width: 40vw;
+  }
+
+  .hero_image1 {
+    width: 50vw;
+  }
+}
