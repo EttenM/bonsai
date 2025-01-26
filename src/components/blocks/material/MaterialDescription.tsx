@@ -2,8 +2,9 @@
 import ButtonLink from "@/components/ui/button/ButtonLink";
 import { fadeInAnimation } from "@/service/fadeInAnim";
 import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 import React, { useRef } from "react";
-
+gsap.registerPlugin(useGSAP);
 type Props = {};
 
 const MaterialDescription = (props: Props) => {

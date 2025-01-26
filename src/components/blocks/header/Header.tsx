@@ -8,24 +8,25 @@ type Props = {};
 
 const Header = (props: Props) => {
   return (
-    //
-    <header className="header">
-      <div className="header_inner">
-        <Link href="/" className="logo">
-          Bonsai
-        </Link>
+    <Container>
+      <header className="header">
+        <div className="header_inner">
+          <Link href="/" className="logo">
+            Bonsai
+          </Link>
 
-        <nav className="header_navigation">
-          {nav.map((item, index) => (
-            <Link key={index} href={item.path} className="navigation_link">
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+          <nav className="header_navigation">
+            {nav.map((item, index) => (
+              <Link key={index} href={item.path} className="navigation_link">
+                {item.label}
+              </Link>
+            ))}
+          </nav>
 
-        <ButtonLink className="header_button" text="Shop Now"></ButtonLink>
-      </div>
-    </header>
+          <ButtonLink className="header_button" text="Shop Now"></ButtonLink>
+        </div>
+      </header>
+    </Container>
   );
 };
 

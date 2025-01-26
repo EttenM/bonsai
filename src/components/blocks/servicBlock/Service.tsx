@@ -12,74 +12,98 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { fadeInAnimation } from "@/service/fadeInAnim";
-gsap.registerPlugin(ScrollTrigger);
+
 type Props = {};
 
 const Service = (props: Props) => {
+  gsap.registerPlugin(useGSAP);
+  gsap.registerPlugin(ScrollTrigger);
   const targetRef = useRef(null);
   const galleryRef = useRef(null);
   useGSAP(() => {
     fadeInAnimation(targetRef.current);
 
-    let mm = gsap.matchMedia(),
-      breakPoint = 640;
+    let mm = gsap.matchMedia();
 
-    mm.add(
-      {
-        isMobile: `(max-width: ${breakPoint}px)`,
-      },
-      (context) => {
-        let { isMobile } = context.conditions!;
-
-        const serviceImageTl = gsap.timeline({
-          scrollTrigger: {
-            trigger: galleryRef.current,
-            start: "+=25% bottom",
-            end: isMobile ? "center center" : "center top",
-            scrub: 1,
+    mm.add("(min-width: 641px)", () => {
+      // desktop setup code here...
+      const serviceImageTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".service_image_wrapper",
+          start: "+=25% bottom",
+          end: "center top",
+          scrub: 1,
+        },
+      });
+      serviceImageTl
+        .fromTo(
+          ".service_image-2",
+          { yPercent: 60, ease: "ease" },
+          {
+            yPercent: 0,
+            ease: "ease",
           },
-        });
-        serviceImageTl
-          .fromTo(
-            ".service_image-2",
-            { yPercent: 60, ease: "ease" },
-            {
-              yPercent: 0,
-              ease: "ease",
-            },
-            "same"
-          )
-          .fromTo(
-            ".service_image-1",
-            { xPercent: -40, yPercent: 20, ease: "ease" },
-            { xPercent: 0, yPercent: 0, ease: "ease" },
-            "same"
-          )
-          .fromTo(
-            ".service_image-3",
-            { xPercent: 40, yPercent: 20, ease: "ease" },
-            { xPercent: 0, yPercent: 0, ease: "ease" },
-            "same"
-          );
-        if (!isMobile) {
-          serviceImageTl
-            .to(
-              ".service_image-1",
+          "same"
+        )
+        .fromTo(
+          ".service_image-1",
+          { xPercent: -40, yPercent: 20, ease: "ease" },
+          { xPercent: 0, yPercent: 0, ease: "ease" },
+          "same"
+        )
+        .fromTo(
+          ".service_image-3",
+          { xPercent: 40, yPercent: 20, ease: "ease" },
+          { xPercent: 0, yPercent: 0, ease: "ease" },
+          "same"
+        )
+        .to(
+          ".service_image-1",
 
-              { yPercent: -40, ease: "ease" },
-              "same2"
-            )
-            .to(
-              ".service_image-3",
+          { yPercent: -40, ease: "ease" },
+          "same2"
+        )
+        .to(
+          ".service_image-3",
 
-              { yPercent: -40, ease: "ease" },
-              "same2"
-            );
-          return () => {};
-        }
-      }
-    );
-  });
+          { yPercent: -40, ease: "ease" },
+          "same2"
+        );
+    });
+
+    mm.add("(max-width: 640px)", () => {
+      const serviceImageTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".service_image_wrapper",
+          start: "+=25% bottom",
+          end: "center center",
+          scrub: 1,
+        },
+      });
+      serviceImageTl
+        .fromTo(
+          ".service_image-2",
+          { yPercent: 60, ease: "ease" },
+          {
+            yPercent: 0,
+            ease: "ease",
+          },
+          "same"
+        )
+        .fromTo(
+          ".service_image-1",
+          { xPercent: -40, yPercent: 20, ease: "ease" },
+          { xPercent: 0, yPercent: 0, ease: "ease" },
+          "same"
+        )
+        .fromTo(
+          ".service_image-3",
+          { xPercent: 40, yPercent: 20, ease: "ease" },
+          { xPercent: 0, yPercent: 0, ease: "ease" },
+          "same"
+        );
+    });
+  }, []);
   return (
     <div className="service">
       <ServiseTopGallery />

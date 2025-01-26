@@ -2,7 +2,7 @@
 @import "@/utils/mixins.scss";
 // @use "sass:meta";
 .hero_section {
-  margin-top: max(70px, calc-index(2));
+  // margin-top: max(70px, calc-index(2));
   position: relative;
   display: grid;
   grid-template-rows: repeat(10, minmax(85px, calc-index(3.5)));
@@ -16,7 +16,9 @@
 
 .hero_image1_container {
   position: relative;
-  left: -100%;
+  // left: -100%;
+  visibility: hidden;
+
   grid-row-start: 2;
   width: calc-index(23);
   height: auto;
@@ -36,9 +38,10 @@
 }
 
 .hero_image2_container {
+  visibility: hidden;
   position: absolute;
   bottom: 0;
-  right: -100%;
+  right: 0%;
   width: calc-index(17);
   height: auto;
   aspect-ratio: 1 / 1;

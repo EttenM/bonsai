@@ -5,6 +5,8 @@ import "./work.scss";
 import ButtonLink from "@/components/ui/button/ButtonLink";
 import { useGSAP } from "@gsap/react";
 import { fadeInAnimation } from "@/service/fadeInAnim";
+import gsap from "gsap";
+gsap.registerPlugin(useGSAP);
 type Props = {};
 
 const Work = (props: Props) => {

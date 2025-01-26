@@ -2,6 +2,8 @@
 import { useGSAP } from "@gsap/react";
 import { fadeInAnimation } from "@/service/fadeInAnim";
 import { useRef } from "react";
+import gsap from "gsap";
+gsap.registerPlugin(useGSAP);
 type Props = {};
 
 const ProductSubtitle = (props: Props) => {

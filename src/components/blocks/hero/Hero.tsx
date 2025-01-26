@@ -5,26 +5,33 @@ import image2 from "@/img/hero/image2.png";
 import "./hero.scss";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-
+gsap.registerPlugin(useGSAP);
 type Props = {};
 
 const Hero = (props: Props) => {
   useGSAP(() => {
     const tl = gsap.timeline();
-    tl.to(
+    tl.fromTo(
       ".hero_image1_container",
       {
-        // delay: 1.5,
-        left: 0,
-        duration: 1,
+        xPercent: -100,
+      },
+      {
+        visibility: "visible",
+        xPercent: 0,
+        duration: 1.5,
         ease: "ease",
       },
       "1"
     )
-      .to(
+      .fromTo(
         ".hero_image2_container",
         {
-          right: 0,
+          xPercent: 100,
+        },
+        {
+          visibility: "visible",
+          xPercent: 0,
           duration: 1.5,
           ease: "ease",
         },
@@ -49,10 +56,14 @@ const Hero = (props: Props) => {
         },
         "3"
       )
-      .to(
+      .fromTo(
         ".header",
         {
-          top: "2.5%",
+          yPercent: -100,
+        },
+        {
+          visibility: "visible",
+          yPercent: 0,
           duration: 0.5,
           ease: "sine",
         },

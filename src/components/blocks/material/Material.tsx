@@ -4,11 +4,9 @@ import image_1 from "@/img/material/image1.png";
 import image_2 from "@/img/material/image2.png";
 import image_3 from "@/img/material/image3.png";
 import SectionHeader from "@/components/components/sectionHeader/SectionHeader";
-import Container from "@/components/layouts/Container";
+
 import "./material.scss";
-import ButtonLink from "@/components/ui/button/ButtonLink";
-import { useGSAP } from "@gsap/react";
-import { fadeInAnimation } from "@/service/fadeInAnim";
+
 import MaterialDescription from "./MaterialDescription";
 type Props = {};
 
