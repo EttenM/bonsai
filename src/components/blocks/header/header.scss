@@ -1,11 +1,21 @@
 @import "@/styles/utils/vars.scss";
 @import "@/styles/utils/mixins.scss";
 .header {
-  @extend %flex-between;
-  width: 100%;
-  margin-top: 2.5vh;
-}
+  position: absolute;
 
+  width: 100%;
+  left: 0;
+  right: 0;
+  // margin-top: 2.5vh;
+
+  top: -20%;
+}
+.header_inner {
+  width: 85%;
+  margin-right: auto;
+  margin-left: auto;
+  @extend %flex-between;
+}
 .header_navigation {
   font-size: max(14px, 1.2vw);
   display: flex;

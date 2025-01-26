@@ -50,14 +50,14 @@ const ProductSlider = (props: Props) => {
       quantity: 15,
     },
     {
-      id: 4,
+      id: 5,
       img: image_5,
 
       title: "Bed",
       quantity: 10,
     },
     {
-      id: 4,
+      id: 6,
       img: image_6,
 
       title: "Kitchen",
@@ -65,47 +65,47 @@ const ProductSlider = (props: Props) => {
     },
   ];
   return (
-    <div className="product_slider">
-      <Swiper
-        className="mySwiper"
-        grabCursor={true}
-        // loop={true}
-        slidesPerView={"auto"}
-        // spaceBetween={15}
-        freeMode={true}
-        navigation={{
-          prevEl: prevRef.current,
-          nextEl: nextRef.current,
-        }}
-        onInit={(swiper: any) => {
-          swiper.params.navigation.prevEl = prevRef.current;
-          swiper.params.navigation.nextEl = nextRef.current;
-          swiper.navigation.init();
-          swiper.navigation.update();
-        }}
-        modules={[FreeMode, Navigation]}
-      >
-        {productData.map((product) => (
-          <SwiperSlide>
-            <div className="swiper-slide_inner">
-              <Image src={product.img} alt={`${product.title} img`} />
-              <div className="swiper-slide_text">
-                <p>{product.title}</p>
-                <p>{product.quantity} items</p>
-              </div>
+    // <div className="product_slider">
+    <Swiper
+      className="mySwiper"
+      grabCursor={true}
+      // loop={true}
+      slidesPerView={"auto"}
+      // spaceBetween={15}
+      freeMode={true}
+      navigation={{
+        prevEl: prevRef.current,
+        nextEl: nextRef.current,
+      }}
+      onInit={(swiper: any) => {
+        swiper.params.navigation.prevEl = prevRef.current;
+        swiper.params.navigation.nextEl = nextRef.current;
+        swiper.navigation.init();
+        swiper.navigation.update();
+      }}
+      modules={[FreeMode, Navigation]}
+    >
+      {productData.map((product) => (
+        <SwiperSlide key={product.id}>
+          <div className="swiper-slide_inner">
+            <Image src={product.img} alt={`${product.title} img`} />
+            <div className="swiper-slide_text">
+              <p>{product.title}</p>
+              <p>{product.quantity} items</p>
             </div>
-          </SwiperSlide>
-        ))}
-        <div className="swiper-button-navigation">
-          <div className="swiper-button-prev" ref={prevRef}>
-            <ArrowLeftCircleIcon />
           </div>
-          <div className="swiper-button-next" ref={nextRef}>
-            <ArrowRightCircleIcon />
-          </div>
+        </SwiperSlide>
+      ))}
+      <div className="swiper-button-navigation">
+        <div className="swiper-button-prev" ref={prevRef}>
+          <ArrowLeftCircleIcon />
         </div>
-      </Swiper>
-    </div>
+        <div className="swiper-button-next" ref={nextRef}>
+          <ArrowRightCircleIcon />
+        </div>
+      </div>
+    </Swiper>
+    // </div>
   );
 };
 

@@ -1,8 +1,11 @@
+"use server";
 import SectionHeader from "@/components/components/sectionHeader/SectionHeader";
 import "./product.scss";
 
 import React from "react";
 import ProductSlider from "./ProductSlider";
+
+import ProductSubtitle from "./ProductSubtitle";
 
 type Props = {};
 
@@ -22,9 +25,7 @@ const Product = (props: Props) => {
             subtitle="PRODUCT"
           />
         </div>
-        <p className="product_text">
-          Find a variety of furniture products that you want
-        </p>
+        <ProductSubtitle />
       </div>
 
       <ProductSlider />

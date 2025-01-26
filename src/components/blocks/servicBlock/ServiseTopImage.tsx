@@ -7,7 +7,11 @@ type Props = {
 };
 
 const ServiseTopImage = ({ url, alt }: Props) => {
-  return <Image src={url} alt={alt} className="service-top-image" />;
+  return (
+    <div className="service-top-image-container">
+      <Image src={url} alt={alt} className="service-top-image" />
+    </div>
+  );
 };
 
 export default ServiseTopImage;

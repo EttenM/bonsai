@@ -2,6 +2,7 @@
 @import "@/utils/mixins.scss";
 // @use "sass:meta";
 .hero_section {
+  margin-top: max(70px, calc-index(2));
   position: relative;
   display: grid;
   grid-template-rows: repeat(10, minmax(85px, calc-index(3.5)));
@@ -13,20 +14,46 @@
   width: 100%;
 }
 
-.hero_image1 {
+.hero_image1_container {
+  position: relative;
+  left: -100%;
   grid-row-start: 2;
   width: calc-index(23);
   height: auto;
   aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 0 1em 1em 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
 }
 
-.hero_image2 {
+.hero_image2_container {
   position: absolute;
   bottom: 0;
-  right: 0;
+  right: -100%;
   width: calc-index(17);
   height: auto;
   aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 1em 0 0 1em;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
 }
 
 .hero_title {
@@ -40,6 +67,9 @@
   flex-direction: column;
   align-items: center;
   color: white;
+  span {
+    opacity: 0;
+  }
 }
 
 @for $i from 2 through 4 {
@@ -55,6 +85,7 @@
 }
 
 .hero_description {
+  opacity: 0;
   position: absolute;
   top: 15%;
   right: 6%;
@@ -99,11 +130,14 @@
     top: 10%;
     transform: translate(0%, -10%);
   }
-  .hero_image2 {
-    width: 40vw;
+  .hero_image2_container {
+    width: calc-index(20);
   }
 
-  .hero_image1 {
-    width: 50vw;
+  .hero_image1_container {
+    width: min(calc-index(17), 50vw);
+  }
+  .hero_title {
+    font-size: 15vw;
   }
 }

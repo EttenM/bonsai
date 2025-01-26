@@ -64,14 +64,22 @@
 }
 .material_text {
   font-size: calc-index(1);
+
   @media (max-width: 767px) {
-    font-size: calc-index(1.6);
+    font-size: calc-index(1.2);
   }
 }
 
 .material_button {
   @include button-link($mainColor);
+  // @media (max-width: 767px) {
+  //   font-size: calc-index(1.6);
+  // }
+  // @include button-link($accentColor);
+  font-size: calc-index(1);
+  // width: 100%;
+  // text-align: center;
   @media (max-width: 767px) {
-    font-size: calc-index(1.6);
+    font-size: calc-index(1.2);
   }
 }

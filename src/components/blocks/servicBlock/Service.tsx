@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useRef } from "react";
 import "./service.scss";
 import VisionImage from "./ServiseTopImage";
 import ServiseTopGallery from "./ServiseTopGallery";
@@ -7,9 +8,78 @@ import Image from "next/image";
 import image_1 from "@/img/service_block/image1.png";
 import image_2 from "@/img/service_block/image2.png";
 import image_3 from "@/img/service_block/image3.png";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { fadeInAnimation } from "@/service/fadeInAnim";
+gsap.registerPlugin(ScrollTrigger);
 type Props = {};
 
 const Service = (props: Props) => {
+  const targetRef = useRef(null);
+  const galleryRef = useRef(null);
+  useGSAP(() => {
+    fadeInAnimation(targetRef.current);
+
+    let mm = gsap.matchMedia(),
+      breakPoint = 640;
+
+    mm.add(
+      {
+        isMobile: `(max-width: ${breakPoint}px)`,
+      },
+      (context) => {
+        let { isMobile } = context.conditions!;
+
+        const serviceImageTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: galleryRef.current,
+            start: "+=25% bottom",
+            end: isMobile ? "center center" : "center top",
+            scrub: 1,
+          },
+        });
+        serviceImageTl
+          .fromTo(
+            ".service_image-2",
+            { yPercent: 60, ease: "ease" },
+            {
+              yPercent: 0,
+              ease: "ease",
+            },
+            "same"
+          )
+          .fromTo(
+            ".service_image-1",
+            { xPercent: -40, yPercent: 20, ease: "ease" },
+            { xPercent: 0, yPercent: 0, ease: "ease" },
+            "same"
+          )
+          .fromTo(
+            ".service_image-3",
+            { xPercent: 40, yPercent: 20, ease: "ease" },
+            { xPercent: 0, yPercent: 0, ease: "ease" },
+            "same"
+          );
+        if (!isMobile) {
+          serviceImageTl
+            .to(
+              ".service_image-1",
+
+              { yPercent: -40, ease: "ease" },
+              "same2"
+            )
+            .to(
+              ".service_image-3",
+
+              { yPercent: -40, ease: "ease" },
+              "same2"
+            );
+          return () => {};
+        }
+      }
+    );
+  });
   return (
     <div className="service">
       <ServiseTopGallery />
@@ -20,12 +90,12 @@ const Service = (props: Props) => {
             subtitle="SERVICE"
           />
         </div>
-        <h3 className="service_description_text">
+        <h3 className="service_description_text" ref={targetRef}>
           Build your interior design customization with our greatest designers
           to become extraordinary masterpieces.
         </h3>
       </div>
-      <div className="service_image_wrapper">
+      <div className="service_image_wrapper" ref={galleryRef}>
         <Image
           src={image_1}
           alt="service_image service_image-1"

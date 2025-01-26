@@ -33,12 +33,15 @@
     font-size: calc-index($localIndex);
     gap: 1em;
     color: $greyColor;
+    overflow: hidden;
   }
   .section_header_subtitle_wrapper {
     text-transform: uppercase;
     display: flex;
     align-items: center;
     gap: 1.5em;
+
+    overflow: hidden;
   }
 
   .section_header_line {

@@ -2,36 +2,30 @@ import Container from "@/components/layouts/Container";
 import { nav } from "@/constants/navigation";
 import Link from "next/link";
 import React from "react";
-import styles from "./header.module.scss";
+import "./header.scss";
 import ButtonLink from "@/components/ui/button/ButtonLink";
 type Props = {};
 
 const Header = (props: Props) => {
   return (
-    <Container>
-      <header className={styles.header}>
-        <Link href="/" className={styles.logo}>
+    //
+    <header className="header">
+      <div className="header_inner">
+        <Link href="/" className="logo">
           Bonsai
         </Link>
 
-        <nav className={styles.header_navigation}>
+        <nav className="header_navigation">
           {nav.map((item, index) => (
-            <Link
-              key={index}
-              href={item.path}
-              className={styles.navigation_link}
-            >
+            <Link key={index} href={item.path} className="navigation_link">
               {item.label}
             </Link>
           ))}
         </nav>
 
-        <ButtonLink
-          className={styles.header_button}
-          text="Shop Now"
-        ></ButtonLink>
-      </header>
-    </Container>
+        <ButtonLink className="header_button" text="Shop Now"></ButtonLink>
+      </div>
+    </header>
   );
 };
 
