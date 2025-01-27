@@ -12,12 +12,14 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { fadeInAnimation } from "@/service/fadeInAnim";
-
+import { useTranslations } from "next-intl";
+gsap.registerPlugin(useGSAP);
+gsap.registerPlugin(ScrollTrigger);
 type Props = {};
 
 const Service = (props: Props) => {
-  gsap.registerPlugin(useGSAP);
-  gsap.registerPlugin(ScrollTrigger);
+  const t = useTranslations("HomePage.Service");
+
   const targetRef = useRef(null);
   const galleryRef = useRef(null);
   useGSAP(() => {
@@ -110,13 +112,23 @@ const Service = (props: Props) => {
       <div className="service_content">
         <div className="service_header_wrapper">
           <SectionHeader
-            title={<>“Good design has perfect results.”</>}
-            subtitle="SERVICE"
+            title={
+              <>
+                {" "}
+                {t.rich("title", {
+                  accent: (chunks) => (
+                    <span className="section_header_title_accentText">
+                      {chunks}
+                    </span>
+                  ),
+                })}
+              </>
+            }
+            subtitle={t("subtitle")}
           />
         </div>
         <h3 className="service_description_text" ref={targetRef}>
-          Build your interior design customization with our greatest designers
-          to become extraordinary masterpieces.
+          {t("text")}
         </h3>
       </div>
       <div className="service_image_wrapper" ref={galleryRef}>

@@ -6,10 +6,13 @@ import ButtonLink from "@/components/ui/button/ButtonLink";
 import { useGSAP } from "@gsap/react";
 import { fadeInAnimation } from "@/service/fadeInAnim";
 import gsap from "gsap";
+import { useTranslations } from "next-intl";
 gsap.registerPlugin(useGSAP);
 type Props = {};
 
 const Work = (props: Props) => {
+  const t = useTranslations("HomePage.Work");
+
   const targetRef = useRef(null);
   useGSAP(() => {
     fadeInAnimation(targetRef.current);
@@ -20,17 +23,21 @@ const Work = (props: Props) => {
         <SectionHeader
           title={
             <>
-              “Would you like to{" "}
-              <span className="section_header_title_accentText">discuss</span>{" "}
-              with us about your amazing project?”
+              {t.rich("title", {
+                accent: (chunks) => (
+                  <span className="section_header_title_accentText">
+                    {chunks}
+                  </span>
+                ),
+              })}
             </>
           }
-          subtitle="Work"
+          subtitle={t("subtitle")}
         />
       </div>
       <div className="work_text" ref={targetRef}>
-        <p>Contact us below to work together to build your amazing project.</p>
-        <ButtonLink className="work_button" text="Contact Us" />
+        <p>{t("text")}</p>
+        <ButtonLink className="work_button" text={t("button")} />
       </div>
     </div>
   );

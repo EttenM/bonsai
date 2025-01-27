@@ -1,0 +1,63 @@
+{
+  "HomePage": {
+    "Header": {
+      "Home": "Home",
+      "Sevice": "Sevice",
+      "Collections": "Collections",
+      "Contact": "Contact",
+      "button": "Shop now"
+    },
+    "Hero": {
+      "title": "create your interior space.",
+      "hero_description_title": "Customized furniture",
+      "hero_description_text": "In building furniture we are always confident to make customers always satisfied with our work, therefore we have a good value rating"
+    },
+    "Vision": {
+      "subtitle": "OUR VISION",
+      "title": "“We are the best furniture company in <accent>Texas</accent>. We always <accent>prioritize our clients</accent> wishes.”"
+    },
+    "Service": {
+      "subtitle": "SERVICE",
+      "title": "“Good design has perfect results.”",
+      "text": "Build your interior design customization with our greatest designers to become extraordinary masterpieces."
+    },
+    "Materials": {
+      "subtitle": "Materials",
+      "title": "“Special materials to make good furniture.”",
+      "text": "We have special materials to build furniture to ve durable with special quality materials can produce something extraordinary.",
+      "button": "See materials"
+    },
+    "Products": {
+      "subtitle": "PRODUCT",
+      "title": "“Choose your <accent>product</accent> category.”",
+      "text": "Find a variety of furniture products that you want",
+
+      "sofa": "Sofa",
+      "bookshelf": "Bookshelf",
+      "chair_package": "Chair package",
+      "work_desk": "Work desk",
+      "bed": "Bed",
+      "kitchen": "Kitchen",
+      "quantity": "{count} items"
+    },
+    "Work": {
+      "subtitle": "Work",
+      "title": "“Would you like to <accent>discuss</accent> with us about your amazing project?”",
+      "text": "Contact us below to work together to build your amazing project.",
+      "button": "Contact us"
+    },
+    "Footer": {
+      "enterEmail": "Enter your email to get the latest news",
+      "placeholder": "Your email address",
+      "submit": "Submit",
+      "Shop": "Shop",
+      "Categories": "Categories",
+      "Collections": "Collections",
+      "Call": "Call",
+      "Blog": "Blog",
+      "OnlineChat": "OnlineChat",
+      "Email": "Email",
+      "SocialMedia": "SocialMedia"
+    }
+  }
+}

@@ -13,10 +13,13 @@ import image_5 from "@/img/products/image5.png";
 import image_6 from "@/img/products/image6.png";
 import Image from "next/image";
 import { ArrowLeftCircleIcon, ArrowRightCircleIcon } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 type Props = {};
 
 const ProductSlider = (props: Props) => {
+  const t = useTranslations("HomePage.Products");
+
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
@@ -25,42 +28,42 @@ const ProductSlider = (props: Props) => {
       id: 1,
       img: image_1,
 
-      title: "Sofa",
+      title: t("sofa"),
       quantity: 22,
     },
     {
       id: 2,
       img: image_2,
 
-      title: "Bookshelf",
+      title: t("bookshelf"),
       quantity: 7,
     },
     {
       id: 3,
       img: image_3,
 
-      title: "Chair Package",
+      title: t("chair_package"),
       quantity: 41,
     },
     {
       id: 4,
       img: image_4,
 
-      title: "Work desk",
-      quantity: 15,
+      title: t("work_desk"),
+      quantity: 1,
     },
     {
       id: 5,
       img: image_5,
 
-      title: "Bed",
+      title: t("kitchen"),
       quantity: 10,
     },
     {
       id: 6,
       img: image_6,
 
-      title: "Kitchen",
+      title: t("bed"),
       quantity: 9,
     },
   ];
@@ -91,7 +94,7 @@ const ProductSlider = (props: Props) => {
             <Image src={product.img} alt={`${product.title} img`} />
             <div className="swiper-slide_text">
               <p>{product.title}</p>
-              <p>{product.quantity} items</p>
+              <p>{t("quantity", { count: product.quantity })}</p>
             </div>
           </div>
         </SwiperSlide>

@@ -70,7 +70,7 @@
 @mixin description-text($textColor: $secondaryColor) {
   font-size: calc-index(1.25);
   color: $textColor;
-  text-wrap: balance;
+  // text-wrap: balance;
   @media (min-width: 1400px) {
     font-size: calc-index(1);
     text-wrap: unset;

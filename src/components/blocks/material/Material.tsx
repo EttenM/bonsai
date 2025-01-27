@@ -8,16 +8,16 @@ import SectionHeader from "@/components/components/sectionHeader/SectionHeader";
 import "./material.scss";
 
 import MaterialDescription from "./MaterialDescription";
+import { useTranslations } from "next-intl";
 type Props = {};
 
 const Material = (props: Props) => {
+  const t = useTranslations("HomePage.Materials");
+
   return (
     <div className="section_material">
       <div className="material_block1 material_block_wrapper">
-        <SectionHeader
-          title={<>“Special materials to make good furniture”</>}
-          subtitle="MATERIAL"
-        />
+        <SectionHeader title={<>{t("title")}</>} subtitle={t("subtitle")} />
 
         <Image src={image_1} alt="material_image1" className="material_image" />
       </div>
@@ -28,7 +28,7 @@ const Material = (props: Props) => {
       />
       <div className="material_block3 material_block_wrapper">
         <Image src={image_3} alt="material_image3" className="material_image" />
-        <MaterialDescription />
+        <MaterialDescription button={t("button")} text={t("text")} />
       </div>
     </div>
   );

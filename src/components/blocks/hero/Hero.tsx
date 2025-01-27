@@ -5,10 +5,14 @@ import image2 from "@/img/hero/image2.png";
 import "./hero.scss";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/routing";
 gsap.registerPlugin(useGSAP);
 type Props = {};
 
 const Hero = (props: Props) => {
+  const t = useTranslations("HomePage.Hero");
+  const title = t("title").split(" ");
   useGSAP(() => {
     const tl = gsap.timeline();
     tl.fromTo(
@@ -90,15 +94,23 @@ const Hero = (props: Props) => {
       </div>
 
       <h1 className="hero_title">
-        <span>create</span> <span>your</span> <span>interior</span>{" "}
-        <span>space.</span>
+        {title.map((word, index) => (
+          <span key={index}>{word}</span>
+        ))}
+        {/* {t("title")} */}
+        {/* <span>create</span> <span>your</span> <span>interior</span>{" "}
+        <span>space.</span> */}
       </h1>
 
       <div className="hero_description">
-        <h3 className="hero_description_title">Customized furniture </h3>
+        <h3 className="hero_description_title">
+          {t("hero_description_title")}
+          {/* Customized furniture  */}
+        </h3>
         <p className="hero_description_text">
-          In building furniture we are always confident to make customers always
-          satisfied with our work, therefore we have a good value rating
+          {t("hero_description_text")}
+          {/* In building furniture we are always confident to make customers always
+          satisfied with our work, therefore we have a good value rating */}
         </p>
       </div>
     </section>

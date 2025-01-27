@@ -4,16 +4,16 @@ import { fadeInAnimation } from "@/service/fadeInAnim";
 import { useRef } from "react";
 import gsap from "gsap";
 gsap.registerPlugin(useGSAP);
-type Props = {};
+type Props = { text: string };
 
-const ProductSubtitle = (props: Props) => {
+const ProductSubtitle = ({ text }: Props) => {
   const targetRef = useRef(null);
   useGSAP(() => {
     fadeInAnimation(targetRef.current);
   }, []);
   return (
     <p className="product_text" ref={targetRef}>
-      Find a variety of furniture products that you want
+      {text}
     </p>
   );
 };

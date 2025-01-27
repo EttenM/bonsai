@@ -6,10 +6,13 @@ import React from "react";
 import ProductSlider from "./ProductSlider";
 
 import ProductSubtitle from "./ProductSubtitle";
+import { useTranslations } from "next-intl";
 
 type Props = {};
 
 const Product = (props: Props) => {
+  const t = useTranslations("HomePage.Products");
+
   return (
     <div className="product_section">
       <div className="product_section_content">
@@ -17,15 +20,19 @@ const Product = (props: Props) => {
           <SectionHeader
             title={
               <>
-                “Choose your{" "}
-                <span className="section_header_title_accentText">product</span>{" "}
-                category.”
+                {t.rich("title", {
+                  accent: (chunks) => (
+                    <span className="section_header_title_accentText">
+                      {chunks}
+                    </span>
+                  ),
+                })}
               </>
             }
-            subtitle="PRODUCT"
+            subtitle={t("subtitle")}
           />
         </div>
-        <ProductSubtitle />
+        <ProductSubtitle text={t("text")} />
       </div>
 
       <ProductSlider />
