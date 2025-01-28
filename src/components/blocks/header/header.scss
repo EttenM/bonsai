@@ -42,17 +42,3 @@
     color: $secondaryColor;
   }
 }
-
-.header_button {
-  @include button-link($accentColor);
-  @media (max-width: 1280px) {
-    font-size: 1.6vw;
-  }
-  @media (max-width: 768px) {
-    display: none;
-  }
-}
-.buttons_wrapper {
-  display: flex;
-  gap: 0.5em;
-}

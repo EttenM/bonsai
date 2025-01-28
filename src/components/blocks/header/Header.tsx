@@ -31,39 +31,34 @@ const Header = ({ lang }: Props) => {
               </Link>
             ))}
           </nav>
-          <div className="buttons_wrapper">
-            <Select
-              defaultValue={lang}
-              indicator={<ChevronDown />}
-              color="neutral"
-              sx={{
-                backgroundColor: "#141313 ",
-                borderColor: "#b9a695",
-                color: "#b9a695",
-                fontSize: "max(14px, 1vw)",
-                border: "1px $color solid",
-                borderRadius: "0.5em",
-                padding: "0.8em 1em",
-                "&:hover": { backgroundColor: "#232323" }, // Цвет при наведении
-              }}
-              size="sm"
-            >
-              <Option value="en">
-                <Link href="/" locale="en" style={{ width: "100%" }}>
-                  English
-                </Link>
-              </Option>
-              <Option value="ru">
-                <Link href="/" locale="ru" style={{ width: "100%" }}>
-                  Русский
-                </Link>
-              </Option>
-            </Select>
-            <ButtonLink
-              className="header_button"
-              text={t("button")}
-            ></ButtonLink>
-          </div>
+
+          <Select
+            defaultValue={lang}
+            indicator={<ChevronDown />}
+            color="neutral"
+            sx={{
+              backgroundColor: "#141313 ",
+              borderColor: "#b9a695",
+              color: "#b9a695",
+              fontSize: "max(14px, 1vw)",
+              border: "1px $color solid",
+              borderRadius: "0.5em",
+              padding: "0.8em 1em",
+              "&:hover": { backgroundColor: "#232323" }, // Цвет при наведении
+            }}
+            size="sm"
+          >
+            <Option value="en">
+              <Link href="/" locale="en" style={{ width: "100%" }}>
+                English
+              </Link>
+            </Option>
+            <Option value="ru">
+              <Link href="/" locale="ru" style={{ width: "100%" }}>
+                Русский
+              </Link>
+            </Option>
+          </Select>
         </div>
       </header>
     </Container>

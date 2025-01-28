@@ -1,4 +1,14 @@
 @use "sass:math";
+:root {
+  --lang-index: 1;
+}
+
+[data-lang="ru"] {
+  --lang-index: 0.8;
+}
+[data-lang="en"] {
+  --lang-index: 1;
+}
 
 @mixin fluid-text($max: 48, $min: 16) {
   $maxViewportWidth: 1400;
@@ -20,7 +30,11 @@
 }
 
 @function calc-index($index: 1) {
-  $widthMultHeight: calc(1vh + 1vw);
+  $widthMultHeight: calc((1vh + 1vw) * var(--lang-index));
+  // @else {
+  //   $widthMultHeight: calc(1vh + 1vw);
+  // }
+
   $index: calc($widthMultHeight * $index);
   @return $index;
 }
