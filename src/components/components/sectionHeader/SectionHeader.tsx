@@ -8,7 +8,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
 type Props = {
-  title: JSX.Element;
+  title: string | JSX.Element;
   subtitle: string;
 };
 
@@ -71,9 +71,14 @@ const SectionHeader = ({ title, subtitle }: Props) => {
           {subtitle}
         </p>
       </div>
-      <div className="section_header_title" ref={titleRef}>
+      {/* <div className="section_header_title" ref={titleRef}>
         {title}
-      </div>
+      </div> */}
+      <div
+        className="section_header_title"
+        ref={titleRef}
+        dangerouslySetInnerHTML={{ __html: title }}
+      />
     </div>
   );
 };

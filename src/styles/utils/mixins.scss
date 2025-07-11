@@ -68,11 +68,14 @@
     font-size: calc-index(calc($localIndex * 3));
     color: $titleColor;
     letter-spacing: -0.02em;
+    span {
+      color: $accentColor;
+    }
   }
 
-  .section_header_title_accentText {
-    color: $accentColor;
-  }
+  // .section_header_title_accentText {
+  //   color: $accentColor;
+  // }
 
   @media (max-width: 768px) {
     .section_header_title {

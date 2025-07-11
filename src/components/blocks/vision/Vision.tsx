@@ -5,25 +5,20 @@ import { useTranslations } from "next-intl";
 
 type Props = {};
 
-const Vision = (props: Props) => {
-  const t = useTranslations("HomePage.Vision");
+const Vision = (data: any) => {
+  // console.log("visionData", data);
+  const vision_data = data.data.landingPages.nodes[0].visionBlock;
+
   return (
     <>
       <div className="section vision_section">
         <Container>
           <SectionHeader
-            title={
-              <>
-                {t.rich("title", {
-                  accent: (chunks) => (
-                    <span className="section_header_title_accentText">
-                      {chunks}
-                    </span>
-                  ),
-                })}
-              </>
+            title={vision_data.title}
+            subtitle={
+              // t("subtitle")
+              vision_data.subtitle
             }
-            subtitle={t("subtitle")}
           />
         </Container>{" "}
       </div>

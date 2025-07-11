@@ -26,7 +26,7 @@ const Header = ({ lang }: Props) => {
 
           <nav className="header_navigation">
             {keys.map((key) => (
-              <Link key={key} href="/" className="navigation_link">
+              <Link key={key} href="/service" className="navigation_link">
                 {t(`${key}`)}
               </Link>
             ))}

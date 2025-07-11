@@ -17,19 +17,17 @@ import { useTranslations } from "next-intl";
 
 type Props = {};
 
-const ProductSlider = (props: Props) => {
+const ProductSlider = (data: any) => {
   const t = useTranslations("HomePage.Products");
 
   const prevRef = useRef(null);
   const nextRef = useRef(null);
-
   const productData = [
     {
       id: 1,
-      img: image_1,
-
-      title: t("sofa"),
-      quantity: 22,
+      img: data.data.productItemImage.node.sourceUrl,
+      title: data.data.productItemTitle,
+      quantity: data.data.productItemQuantity,
     },
     {
       id: 2,
@@ -91,7 +89,12 @@ const ProductSlider = (props: Props) => {
       {productData.map((product) => (
         <SwiperSlide key={product.id}>
           <div className="swiper-slide_inner">
-            <Image src={product.img} alt={`${product.title} img`} />
+            <Image
+              src={product.img}
+              alt={`${product.title} img`}
+              width={400}
+              height={400}
+            />
             <div className="swiper-slide_text">
               <p>{product.title}</p>
               <p>{t("quantity", { count: product.quantity })}</p>

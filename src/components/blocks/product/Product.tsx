@@ -1,4 +1,5 @@
-"use server";
+// "use server";
+"use client";
 import SectionHeader from "@/components/components/sectionHeader/SectionHeader";
 import "./product.scss";
 
@@ -10,32 +11,24 @@ import { useTranslations } from "next-intl";
 
 type Props = {};
 
-const Product = (props: Props) => {
+const Product = (data: any) => {
   const t = useTranslations("HomePage.Products");
+  const products_data = data.data.landingPages.nodes[0].productsBlock;
 
+  console.log("products_data", products_data);
   return (
     <div className="product_section">
       <div className="product_section_content">
         <div className="product_header_wrapper">
           <SectionHeader
-            title={
-              <>
-                {t.rich("title", {
-                  accent: (chunks) => (
-                    <span className="section_header_title_accentText">
-                      {chunks}
-                    </span>
-                  ),
-                })}
-              </>
-            }
-            subtitle={t("subtitle")}
+            title={products_data.productTitle}
+            subtitle={products_data.productSubtitle}
           />
         </div>
-        <ProductSubtitle text={t("text")} />
+        <ProductSubtitle text={products_data.productText} />
       </div>
 
-      <ProductSlider />
+      <ProductSlider data={products_data.productItem} />
     </div>
   );
 };
